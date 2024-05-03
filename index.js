@@ -12,6 +12,8 @@ app.use(cors());
 app.use(express.json());
 
 
+
+
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.swu9d.mongodb.net/?retryWrites=true&w=majority`;
 
@@ -29,11 +31,11 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
 
-    const userCollection = client.db("bistroDb").collection("users");
-    const menuCollection = client.db("bistroDb").collection("menu");
-    const reviewCollection = client.db("bistroDb").collection("reviews");
-    const cartCollection = client.db("bistroDb").collection("carts");
-    const paymentCollection = client.db("bistroDb").collection("payments");
+    const userCollection = client.db("bistroDB").collection("users");
+    const menuCollection = client.db("bistroDB").collection("menu");
+    const reviewCollection = client.db("bistroDB").collection("reviews");
+    const cartCollection = client.db("bistroDB").collection("carts");
+    const paymentCollection = client.db("bistroDB").collection("payments");
 
     // jwt related api
     app.post('/jwt', async (req, res) => {
